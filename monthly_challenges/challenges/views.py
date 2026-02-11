@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.urls import reverse
+from django.template.loader import render_to_string
+
+
 # Create your views here.
 
 """
@@ -44,7 +47,7 @@ challenge = {
     "september": "Revise core CS subjects!",
     "october": "Improve problem-solving skills!",
     "november": "Work on interview preparation!",
-    "december": "Reflect and plan goals for next year!"
+    "december": None
 }
 
 
@@ -52,18 +55,16 @@ challenge = {
 def index_month(request):
     list_items = ""
     months = list(challenge.keys())
-    for month in months:
-        month_path = reverse("month-challenge", args=[month])
-        list_items += f"<li><a href=\"{month_path}\">{month.capitalize()}</a></li>"
-
-        response_data = f"""<ul>{list_items}</ul>"""
-    return HttpResponse(response_data)
+    return render(request, "challenges/index.html", {
+        "months": months
+    })
 
 
 def monthly_challenges_by_number(request, month):
     months = list(challenge.keys())
     if month > len(months):
-        return HttpResponseNotFound("<h1>Invalid Month!</h1>")
+        error_response = render_to_string("404.html")  ## can't use render, only used for success response
+        return HttpResponseNotFound(error_response)
     redirect_month = months[month-1]
     redirect_path = reverse("month-challenge", args=[redirect_month])  # will automatically change to the url if changed  in url of urls in main app
     return HttpResponseRedirect(redirect_path)
@@ -72,9 +73,13 @@ def monthly_challenges_by_number(request, month):
 def monthly_challenges(request, month):
     try:
         text = challenge[month]
-        response_data = f"<h1>{text}</h1>"
-        return HttpResponse(response_data)
+        return render(request, "challenges/challenges.html", {
+            "monthly": month,
+            "challenge_text": text
+        })
     except:
-        return HttpResponseNotFound("<h1>Invalid Month!</h1>")
+        # error_response = render_to_string("404.html")  ## can't use render, only used for success response
+        # return HttpResponseNotFound(error_response)  
+        raise Http404()
 
 

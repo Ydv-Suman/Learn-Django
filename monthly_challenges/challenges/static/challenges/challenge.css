@@ -1,0 +1,29 @@
+/* Scoped to challenge page so styles apply reliably and aren't overridden */
+.challenge-page h1,
+.challenge-page h2 {
+  text-align: center;
+  color: white;
+}
+
+.challenge-page h1 {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
+  font-weight: normal;
+  color: #cf54a6;
+}
+
+.challenge-page h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.challenge-page .fallback {
+  text-align: center;
+  color: white;
+}
+
+.challenge-page p {
+  text-align: center;
+  color: #e0e0e0;
+  margin: 1rem 0;
+}
