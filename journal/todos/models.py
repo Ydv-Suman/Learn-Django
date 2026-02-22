@@ -9,12 +9,12 @@ class Todos(models.Model):
     description = models.CharField(max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(null=True, blank=True)
-    is_complete = models.BooleanField()
+    is_complete = models.BooleanField(default=False)
     todo_slug = models.SlugField(max_length=100, blank=True, default="", null=False)
 
     def save(self, *args, **kwargs):
-        if self.title and not self.note_slug:
-            self.note_slug = slugify(self.title)
+        if self.title and not self.todo_slug:
+            self.todo_slug = slugify(self.title)
         super().save(*args, **kwargs)
 
 

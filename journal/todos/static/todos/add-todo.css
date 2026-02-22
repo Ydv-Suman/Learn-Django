@@ -1,0 +1,126 @@
+/* Add todo form — create task view */
+
+.add-todo {
+    max-width: 42rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.add-todo__heading {
+    font-family: var(--font-serif, "Lora", Georgia, serif);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text, #1a1a1a);
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -0.02em;
+}
+
+.add-todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background: var(--surface, #fff);
+    border: 1px solid var(--border, #e8e4de);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow, 0 2px 8px rgba(0, 0, 0, 0.06));
+}
+
+.add-todo-form label {
+    display: block;
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text, #1a1a1a);
+    margin-bottom: 0.35rem;
+}
+
+.add-todo-form input[type="text"],
+.add-todo-form input[type="datetime-local"],
+.add-todo-form textarea {
+    width: 100%;
+    max-width: 100%;
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 1rem;
+    color: var(--text, #1a1a1a);
+    background: #fff;
+    border: 1px solid var(--border, #e8e4de);
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-todo-form input:focus,
+.add-todo-form textarea:focus {
+    outline: none;
+    border-color: var(--accent, #c45c26);
+    box-shadow: 0 0 0 3px rgba(196, 92, 38, 0.15);
+}
+
+.add-todo-form textarea {
+    min-height: 8rem;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.add-todo-form button {
+    align-self: flex-start;
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent, #c45c26);
+    border: none;
+    border-radius: 6px;
+    padding: 0.65rem 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-top: 0.25rem;
+}
+
+.add-todo-form button:hover {
+    background: var(--accent-hover, #a04a1e);
+}
+
+.add-todo-form button:active {
+    transform: scale(0.98);
+}
+
+.add-todo-form .field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-todo-form .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+.add-todo-form .cancel-link {
+    font-size: 0.95rem;
+    color: var(--text-muted, #666);
+    text-decoration: none;
+}
+
+.add-todo-form .cancel-link:hover {
+    text-decoration: underline;
+}
+
+.add-todo-form .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+@media (min-width: 36rem) {
+    .add-todo-form .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+}

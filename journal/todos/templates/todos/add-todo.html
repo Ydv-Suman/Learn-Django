@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Todo{% endblock %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todos/add-todo.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="add-todo">
+        <h2 class="add-todo__heading">Add Todo</h2>
+        <form action="{% url 'add-todos' %}" method="POST" class="add-todo-form">
+            {% csrf_token %}
+            <div class="field-group">
+                <label for="title">Title</label>
+                <input id="title" name="title" type="text" placeholder="Todo title" required>
+            </div>
+            <div class="field-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="6" placeholder="Description about todo..."></textarea>
+            </div>
+            <div class="row">
+                <div class="field-group">
+                    <label for="created-at">Created At</label>
+                    <input type="datetime-local" id="created-at" name="created-at" value="2026-02-22T19:30">
+                </div>
+                <div class="field-group">
+                    <label for="due-date">Due Date</label>
+                    <input type="datetime-local" id="due-date" name="due-date" value="2026-02-23T19:30">
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

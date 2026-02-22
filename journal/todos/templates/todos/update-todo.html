@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit: {{ title }}{% endblock %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'todos/add-todo.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="add-todo">
+        <h2 class="add-todo__heading">Edit Todo</h2>
+        <form action="{% url 'todo-update' todo.todo_slug %}" method="POST" class="add-todo-form">
+            {% csrf_token %}
+            <div class="field-group">
+                <label for="title">Title</label>
+                <input id="title" name="title" type="text" placeholder="Todo title" value="{{ title }}" required>
+            </div>
+            <div class="field-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="6" placeholder="Description about todo...">{{ description }}</textarea>
+            </div>
+            <div class="field-group">
+                <label for="due-date">Due Date</label>
+                <input type="datetime-local" id="due-date" name="due-date" {% if due_date %}value="{{ due_date|date:'Y-m-d' }}T{{ due_date|time:'H:i' }}"{% endif %}>
+            </div>
+            <div class="field-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="is-complete" {% if is_complete %}checked{% endif %}>
+                    Mark as complete
+                </label>
+            </div>
+            <div class="form-actions">
+                <button type="submit">Save changes</button>
+                <a href="{% url 'todo-detail' todo.todo_slug %}" class="cancel-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

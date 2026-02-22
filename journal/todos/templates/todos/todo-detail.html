@@ -20,6 +20,17 @@
     <div class="todo-detail__body">
         <p class="todo-detail__description">{{ description }}</p>
     </div>
+     
+    <div class="todo-detail__actions">
+        <a href="{% url 'todo-update' todo.todo_slug %}" class="todo-detail__action">Edit todo</a>
+        <div class="delete-todo">
+            <form action="{% url 'todo-delete' todo.todo_slug %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete todo</button>
+            </form>
+        </div>
+    </div>
+
     <footer class="todo-detail__footer">
         <a href="{% url 'todos' %}" class="todo-detail__back">← Back to list</a>
     </footer>

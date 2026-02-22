@@ -8,7 +8,9 @@
 
 {% block content %}
     <h1>Add new todo</h1>
-    <button class="new-note">Add Note</button>
+    <a href="{% url "add-todos" %}">
+        <button class="new-note">Add Note</button>
+    </a>
 
     {% if not todos_incomplete and not todos_completed %}
         <p class="not-note">No notes yet.</p>

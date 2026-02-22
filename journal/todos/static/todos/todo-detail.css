@@ -88,6 +88,70 @@
     word-break: break-word;
 }
 
+/* Actions row: Edit + Delete */
+.todo-detail__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+}
+
+.todo-detail__action {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-weight: 500;
+    color: var(--accent, #c45c26);
+    background: transparent;
+    border: 1px solid var(--accent, #c45c26);
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.todo-detail__action:hover {
+    background: var(--accent, #c45c26);
+    color: #fff;
+}
+
+.delete-todo {
+    margin: 0;
+}
+
+/* Remove default form spacing */
+.delete-todo form {
+    margin: 0;
+}
+
+/* Style the actual button */
+.delete-todo button {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+
+    background-color: #ef4444;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Hover */
+.delete-todo button:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* Click animation */
+.delete-todo button:active {
+    transform: scale(0.97);
+}
+
 .todo-detail__footer {
     border-top: 1px solid var(--border, #e8e4de);
     padding-top: 1rem;
