@@ -14,7 +14,7 @@ class Gallery(models.Model):
 
     class Meta:
         ordering = ["-updated_at"]
-
+ 
     def save(self, *args, **kwargs):
         if not self.image_slug or not self.image_slug.strip():
             self.image_slug = (slugify(self.caption) if self.caption else "") or str(uuid.uuid4())[:8]

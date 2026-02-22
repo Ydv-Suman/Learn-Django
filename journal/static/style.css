@@ -59,5 +59,50 @@ header nav a:hover {
   color: var(--accent-hover);
 }
 
+/* --- Home page --- */
+.home-hero {
+  max-width: 36rem;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.home-hero h1 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.home-hero p {
+  font-family: var(--font-sans);
+  color: var(--text);
+  opacity: 0.85;
+  margin: 0 0 1.5rem;
+}
+
+.home-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-links a {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-links a:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent);
+}
+
 /* --- Font imports --- */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Lora:ital,wght@0,500;0,600;1,400&display=swap");

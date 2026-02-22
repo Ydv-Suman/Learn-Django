@@ -67,6 +67,11 @@
   color: var(--gallery-text-secondary, #475569);
   margin: 0 0 0.75rem;
   line-height: 1.5;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* ~200 characters per line when excerpt_lines filter not applied (e.g. plain text) */
+  max-width: 200ch;
 }
 
 .image-detail-dates {

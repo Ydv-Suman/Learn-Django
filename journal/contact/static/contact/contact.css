@@ -1,0 +1,96 @@
+/* --- Contact page: Let's talk left, form right --- */
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 56rem;
+  min-height: calc(100vh - 5rem);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.contact-intro {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.contact-intro h1 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.contact-intro p {
+  font-family: var(--font-sans);
+  color: var(--text);
+  opacity: 0.9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-layout .message-form {
+  flex: 1 1 20rem;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-layout .message-form form > div {
+  margin-bottom: 1rem;
+}
+
+.contact-layout .message-form label {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.contact-layout .message-form input,
+.contact-layout .message-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+}
+
+.contact-layout .message-form input:focus,
+.contact-layout .message-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(196, 92, 38, 0.15);
+}
+
+.contact-layout .message-form textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.contact-layout .message-form button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--surface);
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contact-layout .message-form button:hover {
+  background: var(--accent-hover);
+}

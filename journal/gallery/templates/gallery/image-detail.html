@@ -19,7 +19,7 @@
         <img src="{{ image.image.url }}" alt="{{ image.caption }}">
         <section class="image-detail-meta">
             {% if caption %}<p class="image-detail-caption">{{ caption }}</p>{% endif %}
-            {% if excerpt %}<p class="image-detail-excerpt">{{ excerpt }}</p>{% endif %}
+            {% if excerpt %}<div class="image-detail-excerpt">{{ excerpt|linebreaksbr }}</div>{% endif %}
             <p class="image-detail-dates">
                 Uploaded {{ uploaded_at|date:"M j, Y" }}
                 {% if updated_at %} · Updated {{ updated_at|date:"M j, Y" }}{% endif %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'contact/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="contact-layout">
+        <div class="contact-intro">
+            <h1>Let's Talk</h1>
+            <p>Whether you have a question, want to start a project or simply want to get in touch — feel free to send a message using the form.</p>
+        </div>
+
+        <div class="message-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required>
+                </div>
+                <div>
+                    <label for="email-address">Email Address</label>
+                    <input id="email-address" name="email-address" size="40" type="email" required>
+                </div>
+                <div>
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" size="80" type="text" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="5" cols="30" required></textarea>
+                </div>
+                <button>Send Message</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sent Confirmation{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'contact/confirmation.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="confirmation-page">
+        <h1>Thank you</h1>
+        <p>
+            Your message has been sent.<br>
+            You will get a reply within 24 hours.
+        </p>
+    </div>
+{% endblock %}
