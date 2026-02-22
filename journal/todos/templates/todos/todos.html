@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'todos/todos.css' %}">
+{% endblock %}
+{% block title %}Todos{% endblock %}
+
+{% block content %}
+    <h1>Add new todo</h1>
+    <button class="new-note">Add Note</button>
+
+    {% if not todos_incomplete and not todos_completed %}
+        <p class="not-note">No notes yet.</p>
+    {% else %}
+    <div class="todos-section">
+        <h2>Need Attention!!!</h2>
+        <div class="todos-grid">
+        {% for todo in todos_incomplete %}
+            <div class="not-completed-todos">
+                <a href="{% url 'todo-detail' todo.todo_slug%}">
+                    <h3>{{ todo.title }}</h3>
+                </a>
+                <p>Due: {{ todo.due_date }}</p>
+            </div>
+        {% empty %}
+            <p class="todos-grid-empty">No notes needing attention.</p>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="todos-section">
+        <h2>Completed!!!</h2>
+        <div class="todos-grid">
+        {% for todo_completed in todos_completed %}
+            <div class="completed-todos">
+                <a href="{% url "todo-detail" todo_completed.todo_slug%}">
+                    <h3>{{ todo_completed.title }}</h3>
+                </a>
+                <p>Completed</p>
+            </div>
+        {% empty %}
+            <p class="todos-grid-empty">No completed todos yet.</p>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

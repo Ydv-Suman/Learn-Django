@@ -6,7 +6,7 @@
 
 # to create a model
 1. create class in model in app
-2. python3 manage.py makemigrations -> to mkae migrations, popu;ates migrations folder of all the apps
+2. python3 manage.py makemigrations -> to make migrations, populates migrations folder of all the apps
 3. python3 manage.py migrate -> run all the migrations that has n;t been executed yet
 
 # create super user

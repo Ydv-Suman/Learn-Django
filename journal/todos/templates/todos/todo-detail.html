@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'todos/todo-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<article class="todo-detail">
+    <header class="todo-detail__header">
+        <h1 class="todo-detail__title">{{ title }}</h1>
+        <div class="todo-detail__meta">
+            <span class="todo-detail__meta-item">Created: {{ created_at|date:"M j, Y" }}</span>
+            <span class="todo-detail__meta-item">Due: {{ due_date|date:"M j, Y" }}</span>
+            <span class="todo-detail__meta-item todo-detail__status todo-detail__status--{{ is_complete|yesno:"complete,incomplete" }}">{{ is_complete|yesno:"Done, need to finish" }}</span>
+        </div>
+    </header>
+    <div class="todo-detail__body">
+        <p class="todo-detail__description">{{ description }}</p>
+    </div>
+    <footer class="todo-detail__footer">
+        <a href="{% url 'todos' %}" class="todo-detail__back">← Back to list</a>
+    </footer>
+</article>
+{% endblock %}

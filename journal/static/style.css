@@ -1,0 +1,63 @@
+/* --- Variables (used by header) --- */
+:root {
+  --surface: #fff;
+  --text: #1a1a1a;
+  --accent: #c45c26;
+  --accent-hover: #a04a1e;
+  --border: #e8e4de;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Header --- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+header h1 a {
+  color: var(--text);
+}
+
+header h1 a:hover {
+  color: var(--accent);
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+header nav a {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover {
+  color: var(--accent-hover);
+}
+
+/* --- Font imports --- */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Lora:ital,wght@0,500;0,600;1,400&display=swap");

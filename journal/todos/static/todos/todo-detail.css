@@ -1,0 +1,107 @@
+/* Todo detail page — single task view */
+
+.todo-detail {
+    max-width: 42rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.todo-detail__header {
+    margin-bottom: 1.5rem;
+}
+
+.todo-detail__title {
+    font-family: var(--font-serif, "Lora", Georgia, serif);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text, #1a1a1a);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.todo-detail__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.todo-detail__meta-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.todo-detail__meta-item::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent, #c45c26);
+    margin-right: 0.5rem;
+    opacity: 0.7;
+}
+
+.todo-detail__meta-item:first-child::before {
+    display: none;
+    margin-right: 0;
+}
+
+.todo-detail__status {
+    font-weight: 600;
+}
+
+.todo-detail__status--complete {
+    color: #065f46;
+}
+
+.todo-detail__status--complete::before {
+    background: #10b981;
+}
+
+.todo-detail__status--incomplete {
+    color: #b91c1c;
+}
+
+.todo-detail__status--incomplete::before {
+    background: #ef4444;
+}
+
+.todo-detail__body {
+    background: var(--surface, #fff);
+    border: 1px solid var(--border, #e8e4de);
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow, 0 2px 8px rgba(0, 0, 0, 0.06));
+    margin-bottom: 1.5rem;
+}
+
+.todo-detail__description {
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text, #1a1a1a);
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.todo-detail__footer {
+    border-top: 1px solid var(--border, #e8e4de);
+    padding-top: 1rem;
+}
+
+.todo-detail__back {
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent, #c45c26);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.todo-detail__back:hover {
+    color: var(--accent-hover, #a04a1e);
+}
