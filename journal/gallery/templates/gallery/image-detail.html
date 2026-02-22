@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ caption|default:"Image" }}{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'gallery/image-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <article class="image-detail">
+        <div class="image-detail-actions">
+            <a href="{% url 'gallery-list' %}" class="back-to-gallery">← Back to gallery</a>
+            <form method="post" action="{% url 'delete-image' image.image_slug %}" class="image-detail-delete">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        <img src="{{ image.image.url }}" alt="{{ image.caption }}">
+        <section class="image-detail-meta">
+            {% if caption %}<p class="image-detail-caption">{{ caption }}</p>{% endif %}
+            {% if excerpt %}<p class="image-detail-excerpt">{{ excerpt }}</p>{% endif %}
+            <p class="image-detail-dates">
+                Uploaded {{ uploaded_at|date:"M j, Y" }}
+                {% if updated_at %} · Updated {{ updated_at|date:"M j, Y" }}{% endif %}
+            </p>
+            
+        </section>
+    </article>
+{% endblock %}

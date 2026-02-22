@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Image{% endblock title %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'gallery/add-image.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Add Image</h1>
+    <p><a href="{% url 'gallery-list' %}" class="back-to-gallery">← Back to gallery</a></p>
+    <div class="add-images add-image-page">
+        <form class="upload-form" action="{% url 'upload-image' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="upload-image" accept="image/*">
+            <input type="text" size="30" name="caption" placeholder="Caption (optional)" maxlength="100">
+            <textarea name="excerpt" id="excerpt" rows="5" cols="30" placeholder="Excerpt (optional)"></textarea>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    
+{% endblock %}

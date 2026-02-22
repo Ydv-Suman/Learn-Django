@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery{% endblock title %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'gallery/gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Explore your Gallery</h1>
+    <p class="gallery-intro">Newest updates first.</p>
+    <div class="add-images-button">
+        <a href="{% url 'add-image-page' %}">Add Images</a>
+    </div>
+
+    <div class="images gallery-grid">
+        {% for image in images %}
+            <div class="gallery-item">
+                {% if image.image_slug %}
+                    <a href="{% url 'image-detail' image.image_slug %}">
+                        <img src="{{ image.image.url }}" alt="{{ image.caption }}">
+                    </a>
+                {% else %}
+                    <img src="{{ image.image.url }}" alt="{{ image.caption }}">
+                {% endif %}
+                <p class="gallery-item-caption">{{ image.caption }}</p>
+                <span class="gallery-item-updated">Updated {{ image.updated_at|date:"M j, Y" }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

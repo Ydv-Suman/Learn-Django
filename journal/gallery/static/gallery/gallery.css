@@ -1,0 +1,112 @@
+/* Gallery list page */
+:root {
+  --gallery-surface: #f8fafc;
+  --gallery-border: #e2e8f0;
+  --gallery-text: #1e293b;
+  --gallery-text-muted: #64748b;
+  --gallery-text-secondary: #475569;
+  --gallery-accent: #334155;
+  --gallery-accent-hover: #475569;
+  --gallery-radius-sm: 0.5rem;
+  --gallery-radius-md: 0.75rem;
+  --gallery-focus-ring: 0 0 0 2px rgba(51, 65, 85, 0.2);
+  --gallery-transition: 0.15s ease;
+}
+
+.gallery-intro {
+  margin: 0.25rem 0 1rem;
+  font-size: 0.9375rem;
+  color: var(--gallery-text-muted);
+}
+
+.add-images-button {
+  margin-bottom: 1.5rem;
+}
+
+.add-images-button a {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--gallery-accent);
+  border: none;
+  border-radius: var(--gallery-radius-sm);
+  text-decoration: none;
+  transition: background-color var(--gallery-transition);
+}
+
+.add-images-button a:hover {
+  background: var(--gallery-accent-hover);
+}
+
+.add-images-button a:focus-visible {
+  outline: none;
+  box-shadow: var(--gallery-focus-ring);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-item a {
+  display: block;
+  width: 100%;
+  border-radius: var(--gallery-radius-sm);
+  overflow: hidden;
+  transition: transform var(--gallery-transition), box-shadow var(--gallery-transition);
+}
+
+.gallery-item a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item-caption {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--gallery-text);
+}
+
+.gallery-item-updated {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--gallery-text-muted);
+}
